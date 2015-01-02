@@ -15,6 +15,9 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return <Lcd number={ this.state.time } />;
+    var number = ("00000" + this.state.time).slice(-5);
+    return <div>
+      <Lcd number={ number } />
+    </div>;
   }
 });

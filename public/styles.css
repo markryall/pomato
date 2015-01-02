@@ -1,6 +1,7 @@
 .lcd {
   height: 21px;
   width: 11px;
+  float: left;
   margin: 3px 1px;
   background-repeat: no-repeat; }
 

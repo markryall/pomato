@@ -1,8 +1,15 @@
 var React = require('react');
+var _ = require('lodash');
 
 module.exports = React.createClass({
   render: function() {
-    var className = "lcd n" + this.props.number;
-    return <div className={ className } />;
+    var fromDigit = function(digit) {
+      var className = "lcd n" + digit;
+      return <div className={ className } />;
+    }
+
+    return <div>
+      { _.map(this.props.number.slice(''), fromDigit) }
+    </div>;
   }
 });
