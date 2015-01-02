@@ -1,3 +1,9 @@
+.lcd {
+  height: 21px;
+  width: 11px;
+  margin: 3px 1px;
+  background-repeat: no-repeat; }
+
 .n0 {
   background-image: url(data:image/gif;base64,R0lGODlhCwAVALMAAAAAAIAAAACAAICAAAAAgIAAgACAgMDAwICAgP8AAAD/AP//AAAA//8A/wD//////ywAAAAACwAVAAAEMBCkSamUdeK0dQYgmHFhp5VjaZLhp25gAMjyNd+0GOPiqbotYK/yE66Klk8yxRlZIgA7); }
 
