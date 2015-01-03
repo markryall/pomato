@@ -9,7 +9,7 @@ module.exports = React.createClass({
     }
 
     return <div>
-      { _.map(this.props.number.slice(''), fromDigit) }
+      { _.map(this.props.number, fromDigit) }
     </div>;
   }
 });
