@@ -2,6 +2,7 @@ var React = require('react');
 var Player = require('./player');
 var TaskForm = require('./taskForm');
 var TaskTimer = require('./taskTimer');
+var History = require('./history');
 var emitter = require('./emitter');
 
 module.exports = React.createClass({
@@ -18,7 +19,10 @@ module.exports = React.createClass({
     });
     emitter.on('stoppingTask', function() {
       component.setState({ running: false });
-    })
+    });
+    emitter.on('finishedTask', function() {
+      component.setState({ running: false });
+    });
   },
 
   render: function() {
@@ -30,6 +34,7 @@ module.exports = React.createClass({
 
     return <div>
       { component }
+      <History />
       <Player />
     </div>;
   }

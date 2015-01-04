@@ -21,7 +21,10 @@ module.exports = React.createClass({
   },
 
   start: function() {
-    emitter.emit('startingTask', this.state);
+    emitter.emit('startingTask', {
+      name: this.state.name,
+      duration: Number(this.state.duration)
+    });
   },
 
   render: function() {

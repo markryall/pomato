@@ -5,28 +5,29 @@ var emitter = require('./emitter');
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      time: Number(this.props.task.duration),
-      stopped: false,
+      time: this.props.task.duration,
       timer: setTimeout(this.tick, 1000)
     };
   },
 
   tick: function() {
-    if (this.state.stopped) {
-      return;
-    }
     this.setState({time: this.state.time - 1});
     if (this.state.time == 0) {
-      emitter.emit('finishedTask', this.props.task);
+      emitter.emit('finishedTask', {
+        task: this.props.task,
+        time: this.props.task.duration
+      });
     } else {
       setTimeout(this.tick, 1000);
     }
   },
 
   stop: function() {
-    this.setState({stopped: true});
     clearTimeout(this.state.timer);
-    emitter.emit('stoppingTask');
+    emitter.emit('stoppingTask', {
+      task: this.props.task,
+      time: (this.props.task.duration - this.state.time)
+    });
   },
 
   render: function() {
