@@ -17,7 +17,7 @@ module.exports = React.createClass({
     }
     this.setState({time: this.state.time - 1});
     if (this.state.time == 0) {
-      emitter.emit('play');
+      emitter.emit('finishedTask', this.props.task);
     } else {
       setTimeout(this.tick, 1000);
     }
@@ -26,7 +26,7 @@ module.exports = React.createClass({
   stop: function() {
     this.setState({stopped: true});
     clearTimeout(this.state.timer);
-    emitter.emit('stop');
+    emitter.emit('stoppingTask');
   },
 
   render: function() {

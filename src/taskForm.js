@@ -21,7 +21,7 @@ module.exports = React.createClass({
   },
 
   start: function() {
-    emitter.emit('start', this.state);
+    emitter.emit('startingTask', this.state);
   },
 
   render: function() {

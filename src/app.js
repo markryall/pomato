@@ -13,10 +13,10 @@ module.exports = React.createClass({
 
   componentWillMount: function() {
     var component = this;
-    emitter.on('start', function(task) {
+    emitter.on('startingTask', function(task) {
       component.setState({ running: true, task: task });
     });
-    emitter.on('stop', function() {
+    emitter.on('stoppingTask', function() {
       component.setState({ running: false });
     })
   },
