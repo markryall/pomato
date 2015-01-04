@@ -3,15 +3,20 @@ var emitter = require('./emitter');
 
 module.exports = React.createClass({
   getInitialState: function() {
-    return {
+    var task = {
       name: 'change world',
       duration: '1500'
     };
+    if (window.localStorage['task']) {
+      task = JSON.parse(window.localStorage['task']);
+    }
+    return task;
   },
 
   changed: function(event) {
-    var state = {};
+    var state = this.state;
     state[event.target.id] = event.target.value;
+    window.localStorage['task'] = JSON.stringify(state);
     this.setState(state);
   },
 
