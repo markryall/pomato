@@ -23,5 +23,10 @@
     "reactify": "^0.17.1",
     "uglify-js": "^2.4.16",
     "watchify": "^2.2.1"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.12.2",
+    "oro-dispatcher": "^1.0.1",
+    "webpack": "^1.4.15"
   }
 }
