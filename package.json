@@ -7,7 +7,7 @@
     "url": "git@github.com:markryall/pomato.git"
   },
   "scripts": {
-    "build": "npm run build-scirpts",
+    "build": "npm run build-scripts",
     "build-dev": "npm run build-scripts-dev",
     "build-scripts": "node_modules/.bin/webpack -p",
     "build-scripts-dev": "node_modules/.bin/webpack",
@@ -16,20 +16,16 @@
     "down": "node_modules/.bin/forever stopall"
   },
   "dependencies": {
-    "browserify": "^7.0.2",
     "compression": "^1.2.2",
     "express": "^4.10.6",
-    "forever": "^0.14.0",
-    "lodash": "^2.4.1",
-    "morgan": "^1.5.0",
-    "react": "^0.12.1",
-    "reactify": "^0.17.1",
-    "uglify-js": "^2.4.16",
-    "watchify": "^2.2.1"
+    "forever": "^0.13.0",
+    "morgan": "^1.5.0"
   },
   "devDependencies": {
     "jsx-loader": "^0.12.2",
+    "lodash": "^2.4.1",
     "oro-dispatcher": "^1.0.1",
+    "react": "^0.12.1",
     "webpack": "^1.4.15"
   }
 }
