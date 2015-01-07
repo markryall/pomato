@@ -7,8 +7,11 @@
     "url": "git@github.com:markryall/pomato.git"
   },
   "scripts": {
-    "build": "NODE_ENV=production node_modules/.bin/browserify -t reactify src/index.js | node_modules/.bin/uglifyjs -cm > public/scripts.js",
-    "watch": "node_modules/.bin/watchify -t reactify src/index.js -o public/scripts.js",
+    "build": "npm run build-scirpts",
+    "build-dev": "npm run build-scripts-dev",
+    "build-scripts": "node_modules/.bin/webpack -p",
+    "build-scripts-dev": "node_modules/.bin/webpack",
+    "watch": "node_modules/.bin/webpack --watch",
     "up": "node_modules/.bin/forever start server.js",
     "down": "node_modules/.bin/forever stopall"
   },
