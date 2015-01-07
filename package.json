@@ -7,8 +7,11 @@
     "url": "git@github.com:markryall/pomato.git"
   },
   "scripts": {
-    "build": "NODE_ENV=production node_modules/.bin/browserify -t reactify src/index.js | node_modules/.bin/uglifyjs -cm > public/scripts.js",
-    "watch": "node_modules/.bin/watchify -t reactify src/index.js -o public/scripts.js",
+    "build": "npm run build-scirpts",
+    "build-dev": "npm run build-scripts-dev",
+    "build-scripts": "node_modules/.bin/webpack -p",
+    "build-scripts-dev": "node_modules/.bin/webpack",
+    "watch": "node_modules/.bin/webpack --watch",
     "up": "node_modules/.bin/forever start server.js",
     "down": "node_modules/.bin/forever stopall"
   },
@@ -23,5 +26,10 @@
     "reactify": "^0.17.1",
     "uglify-js": "^2.4.16",
     "watchify": "^2.2.1"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.12.2",
+    "oro-dispatcher": "^1.0.1",
+    "webpack": "^1.4.15"
   }
 }
