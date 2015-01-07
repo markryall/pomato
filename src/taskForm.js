@@ -16,7 +16,6 @@ module.exports = React.createClass({
   changed: function(event) {
     var state = this.state;
     state[event.target.id] = event.target.value;
-    window.localStorage['task'] = JSON.stringify(state);
     this.setState(state);
   },
 
@@ -28,6 +27,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
+    window.localStorage['task'] = JSON.stringify(this.state);
     return <div>
         <div>
           <label htmlFor="name">Name</label>
