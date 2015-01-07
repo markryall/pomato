@@ -34,3 +34,65 @@
 
 .n9 {
   background-image: url(data:image/gif;base64,R0lGODlhCwAVALMAAAAAAIAAAACAAICAAAAAgIAAgACAgMDAwICAgP8AAAD/AP//AAAA//8A/wD//////ywAAAAACwAVAAAEMRCkSamUdeK0dQYgmHFhp5VjaZLhp24rJ49aEF/2O9l5W+s7QE/0U1F4xt8nSLvQNBEAOw==); }
+
+
+body {
+  font-family: helvetica,arial,sans-serif;
+}
+
+.App {
+  width: 320px;
+  margin: 20px auto;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+}
+
+.TaskForm {
+  display: flex;
+}
+
+.TaskForm input {
+  flex: 1;
+  border: none;
+  padding: 5px 8px;
+  font-size:16px;
+}
+
+.TaskForm input + input {
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+}
+
+.TaskForm button {
+  background: tomato;
+  color: white;
+  font-weight: bold;
+  box-shadow: none;
+  margin: 3px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.Tasks {
+  border-top: 3px double #e5e5e5;
+}
+
+.Task {
+  font-size: 13px;
+  font-weight: 200;
+  line-height: 21px;
+  display: flex;
+  padding: 3px 8px;
+}
+
+.Task + .Task {
+  border-top: 1px solid #e5e5e5;
+}
+
+.Task { color: tomato; }
+.Task.u-done { color: #e5e5e5; }
+
+.TaskName { flex:1; }
