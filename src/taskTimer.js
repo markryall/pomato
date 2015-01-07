@@ -13,7 +13,7 @@ module.exports = React.createClass({
   tick: function() {
     this.setState({time: this.state.time - 1});
     if (this.state.time == 0) {
-      emitter.emit('finishedTask', {
+      emitter.emit('finishTimer', {
         task: this.props.task,
         time: this.props.task.duration
       });
@@ -22,10 +22,11 @@ module.exports = React.createClass({
     }
   },
 
-  stop: function() {
+  stop: function(reason) {
     clearTimeout(this.state.timer);
-    emitter.emit('stoppingTask', {
+    emitter.emit('stopTimer', {
       task: this.props.task,
+      reason: reason,
       time: (this.props.task.duration - this.state.time)
     });
   },
@@ -34,7 +35,8 @@ module.exports = React.createClass({
     return <div>
       <div>Now: { this.props.task.name }</div>
       <Lcd number={ ("00000" + this.state.time).slice(-5) } />
-      <button value="Stop" onClick={ this.stop }>Stop</button>
+      <button onClick={ this.stop.bind(this, 'interrupted') }>Interrupted</button>
+      <button onClick={ this.stop.bind(this, 'completed') }>Completed</button>
     </div>;
   }
 });

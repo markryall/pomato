@@ -21,7 +21,7 @@ module.exports = React.createClass({
   },
 
   start: function() {
-    emitter.emit('startingTask', {
+    emitter.emit('startTimer', {
       name: this.state.name,
       duration: Number(this.state.duration)
     });

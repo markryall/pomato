@@ -12,29 +12,29 @@ module.exports = React.createClass({
     return history;
   },
 
-  appendTask: function(data, completed) {
+  updateHistory: function(name, key, time) {
     var tasks = this.state.tasks;
-    if (!tasks[data.task.name]) {
-      tasks[data.task.name] = { started: 0, completed: 0, time: 0 }
+    if (!tasks[name]) {
+      tasks[name] = {}
     }
-    tasks[data.task.name]['started'] += 1
-    if (completed) {
-      tasks[data.task.name]['completed'] += 1
+    if (!tasks[name][key]) {
+      tasks[name][key] = 0;
     }
-    tasks[data.task.name]['time'] += data.time
+    tasks[name][key] += 1;
+    tasks[name]['time'] += time;
     this.setState({tasks: tasks});
   },
 
   componentWillMount: function() {
     var component = this;
-    emitter.on('startingTask', function(task) {
-      console.log('starting', task);
+    emitter.on('startTimer', function(task) {
+      component.updateHistory(task.name, 'started', 0);
     });
-    emitter.on('stoppingTask', function(data) {
-      component.appendTask(data, false);
+    emitter.on('stopTimer', function(data) {
+      component.updateHistory(data.task.name, data.reason, data.time);
     });
-    emitter.on('finishedTask', function(data) {
-      component.appendTask(data, true);
+    emitter.on('finishTimer', function(data) {
+      component.updateHistory(data.task.name, 'finished', data.time);
     });
   },
 

@@ -14,13 +14,13 @@ module.exports = React.createClass({
 
   componentWillMount: function() {
     var component = this;
-    emitter.on('startingTask', function(task) {
+    emitter.on('startTimer', function(task) {
       component.setState({ running: true, task: task });
     });
-    emitter.on('stoppingTask', function() {
+    emitter.on('stopTimer', function() {
       component.setState({ running: false });
     });
-    emitter.on('finishedTask', function() {
+    emitter.on('finishTimer', function() {
       component.setState({ running: false });
     });
   },

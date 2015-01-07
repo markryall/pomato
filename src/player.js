@@ -4,7 +4,7 @@ var emitter = require('./emitter');
 module.exports = React.createClass({
   componentWillMount: function() {
     var component = this;
-    emitter.on('finishedTask', function() {
+    emitter.on('finishTimer', function() {
       component.refs.audio.getDOMNode().play();
     })
   },
